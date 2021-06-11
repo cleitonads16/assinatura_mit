@@ -53,6 +53,8 @@ function displayFields(form, customHTML) {
 		form.setEnabled("sol_txt_nomeCoorde", true);
 		form.setEnabled("sol_rd_tipoProj", true);
 		form.setEnabled("sol_txtArea_obs", true);
+		form.setEnabled("sol_txt_nomeResAss", true);
+		form.setEnabled("sol_txt_cpfAss", true);
 		form.setEnabled("sol_txt_emailAss", true);
 		form.setEnabled("sol_chk_mit", true);
 		form.setEnabled("sol_rd_finalProces", true);

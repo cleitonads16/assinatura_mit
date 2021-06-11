@@ -44,12 +44,16 @@
 								<input type="zoom" class="form-control" id="zoom_nomeCliente" name="zoom_nomeCliente"	
 									data-zoom="{
 								
-												'displayKey':'FILTROZOOM',
+												'displayKey':'Nome',
 												'datasetId':'dsConsultRestClientes',
 												'maximumSelectionLength':'1',
+												'placeholder':'Clique para selecionar',
 												'fields':[
 
-												{'field':'CHURCH', 'label':'Church'}
+												{ 
+													'field':'Nome', 
+													'label':'Nome'
+												}
 
 											   ]
 											}" 
@@ -62,13 +66,21 @@
 								<input type="zoom" class="form-control" id="zoom_codPojeto" name="zoom_codPojeto"	
 									data-zoom="{
 								
-												'displayKey':'FILTROZOOM',
+												'displayKey':'cdProjeto',
 												'datasetId':'dsConsultRestProjetos',
 												'maximumSelectionLength':'1',
+												'placeholder':'Clique e selecione',
 												'fields':[
 
-												{'field':'CHURCH', 'label':'Church'},
-												{'field':'CHURCH', 'label':'Church'}
+												{
+													'field':'cdProjeto', 
+													'label':'Codigo do Projeto'
+												},
+												{
+													'field':'descProjeto', 
+													'label':'Nome do Projeto',
+													'visible':'false'
+												}
 
 											   ]
 											}" 
@@ -76,7 +88,7 @@
 							</div>
 							<div class="col-md-4">
 								<label class="control-label">Nome do Projeto</label>
-								<input type="text" id="sol_txt_nomeProjeto" name="sol_txt_nomeProjeto" class="form-control" readonly>
+								<input type="text" id="sol_txt_nomeProjeto" name="sol_txt_nomeProjeto" class="form-control" placeholder="Carregamento autom&aacute;tico ap&oacute;s inserir o C&oacute;digo do Projeto" readonly>
 							</div>
 							<div class="col-md-6">
 								<label class="control-label">Nome do Coordenador</label>
@@ -110,11 +122,11 @@
 								</div>
 								<div class="col-md-2">
 									<label class="control-label">CPF:</label>
-									<input type="text" id="sol_txt_cpfAss" name="sol_txt_cpfAss" class="form-control" placeholder="Digite o CPF do respons&aacute;vel"/>
+									<input type="text" id="sol_txt_cpfAss" name="sol_txt_cpfAss" class="form-control cpf" placeholder="Ex. 000.000.000-00"/>
 								</div>
 								<div class="col-md-4">
 									<label class="control-label">E-mail:</label>
-									<input type="text" id="sol_txt_emailAss" name="sol_txt_emailAss" class="form-control" placeholder="Nome do respons&aacute;vel pela assinatura"/>
+									<input type="text" id="sol_txt_emailAss" name="sol_txt_emailAss" class="form-control email" placeholder="exemplo@email.com.br"/>
 								</div>
 							</div>
 						</div>
@@ -181,7 +193,7 @@
 								<input type="radio" name="clie_rd_aprov" id="clie_rd_aprovSim" class="clie_rd_aprov" value="sim">Sim
 							</label>
 							<label class="radio-inline"> 
-								<input type="radio" name="clie_rd_aprov" id="clie_rd_aprovNao" class="clie_rd_aprov" value="nao">N&atilde;o; Devolver ao solicitante
+								<input type="radio" name="clie_rd_aprov" id="clie_rd_aprovNao" class="clie_rd_aprov" value="nao">Devolver ao solicitante
 							</label>
 						</div>
 					</div>
