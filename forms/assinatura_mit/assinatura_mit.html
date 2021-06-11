@@ -1,0 +1,210 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<link type="text/css" rel="stylesheet" href="style.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<script type="text/javascript" src="jquery.mask.min.js"></script>
+</head>
+<body>
+<div class="fluig-style-guide">
+<form name="form" role="form">
+	<input id="atividade" name="atividade" type="hidden"/>
+	<input id="usuarioAtual" name="usuarioAtual" type="hidden"/>
+	<div class="div_titulo">
+		<div class="page-header">
+			<h1>Solicita&ccedil;&atilde;o de Assinatura de MIT</h1>
+			<!-- <small>TSM e TSUL</small> -->
+		</div>
+	</div>
+	<div id="solicitante">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<label class="sol_titulo" data-toggle="collapse" data-target="#collapseSol" data-parent="#solicitante" style="font-size: 13pt">Solicitante</label>
+				</h3>
+			</div>
+			<div id="collapseSol" class="panel-collapse collapse in">
+				<div class="panel-body">
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-6">
+								<label class="control-label">Nome:</label>
+								<input type="text" name="sol_txt_nome" id="sol_txt_nome" class="form-control" readonly> 
+							</div>
+							<div class="col-md-2">
+								<label class="control-label">Data:</label>
+								<input type="text" name="sol_txt_dt" id="sol_txt_dt" class="form-control" placeholder="dia/mes/ano">
+							</div>
+							<div class="col-md-4">
+								<label class="control-label">Nome do Cliente</label>
+								<input type="zoom" class="form-control" id="zoom_nomeCliente" name="zoom_nomeCliente"	
+									data-zoom="{
+								
+												'displayKey':'FILTROZOOM',
+												'datasetId':'dsConsultRestClientes',
+												'maximumSelectionLength':'1',
+												'fields':[
+
+												{'field':'CHURCH', 'label':'Church'}
+
+											   ]
+											}" 
+								/>
+							</div>
+						</div>
+						<div class="row space">
+							<div class="col-md-2">
+								<label class="control-label">C&oacute;digo do projeto</label>
+								<input type="zoom" class="form-control" id="zoom_codPojeto" name="zoom_codPojeto"	
+									data-zoom="{
+								
+												'displayKey':'FILTROZOOM',
+												'datasetId':'dsConsultRestProjetos',
+												'maximumSelectionLength':'1',
+												'fields':[
+
+												{'field':'CHURCH', 'label':'Church'},
+												{'field':'CHURCH', 'label':'Church'}
+
+											   ]
+											}" 
+								/>
+							</div>
+							<div class="col-md-4">
+								<label class="control-label">Nome do Projeto</label>
+								<input type="text" id="sol_txt_nomeProjeto" name="sol_txt_nomeProjeto" class="form-control" readonly>
+							</div>
+							<div class="col-md-6">
+								<label class="control-label">Nome do Coordenador</label>
+								<input type="text" id="sol_txt_nomeCoorde" name="sol_txt_nomeCoorde" class="form-control" placeholder="Digite o nome do coordenador">
+							</div>
+						</div>
+					</div>
+					<div class="row space">
+						<label class="col-md-12 control-label" style="margin-bottom: 10px;">Tipo Projeto:</label>
+						<div class="div_margin">
+							<label class="radio-inline"> 
+								<input type="radio" name="sol_rd_tipoProj" id="sol_rd_tipoProjP" value="P">P
+							</label>
+							<label class="radio-inline"> 
+								<input type="radio" name="sol_rd_tipoProj" id="sol_rd_tipoProjM" value="M">M
+							</label>
+							<label class="radio-inline"> 
+								<input type="radio" name="sol_rd_tipoProj" id="sol_rd_tipoProjG" value="G">G
+							</label>
+						</div>
+					</div>
+					<div class="space">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<label for="clienteAssi">Dados Cliente que realizar&aacute; a assinatura no TOTVS Sign</label>
+							</div>
+							<div class="panel-body">
+								<div class="col-md-6">
+									<label class="control-label">Nome:</label>
+									<input type="text" id="sol_txt_nomeResAss" name="sol_txt_nomeResAss" class="form-control" placeholder="Nome do respons&aacute;vel pela assinatura"/>
+								</div>
+								<div class="col-md-2">
+									<label class="control-label">CPF:</label>
+									<input type="text" id="sol_txt_cpfAss" name="sol_txt_cpfAss" class="form-control" placeholder="Digite o CPF do respons&aacute;vel"/>
+								</div>
+								<div class="col-md-4">
+									<label class="control-label">E-mail:</label>
+									<input type="text" id="sol_txt_emailAss" name="sol_txt_emailAss" class="form-control" placeholder="Nome do respons&aacute;vel pela assinatura"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="div_checkMit space">
+						<label for="checkCoord">
+							<input type="checkbox" name="sol_chk_mit" id="sol_chk_mit"/> MIT anexada:
+						</label>
+					</div>
+					<div class="div_finalizar space">
+						<label class="col-md-12 control-label" style="margin-bottom: 10px;">Finalizar o Processo?</label>
+						<div class="div_margin">
+							<label class="radio-inline"> 
+								<input type="radio" name="sol_rd_finalProces" id="sol_rd_finalProcesS" value="sim">Sim
+							</label>
+							<label class="radio-inline"> 
+								<input type="radio" name="sol_rd_finalProces" id="sol_rd_finalProcesN" value="nao">Devolver ao cliente
+							</label>
+						</div>
+					</div>
+					<div id="div_solObs" class="space">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<label class="labelSolObs">Observa&ccedil;&otilde;es:</label>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="form-group col-md-12">
+										<textarea name="sol_txtArea_obs" id="sol_txtArea_obs" rows="3" class="form-control"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="cliente">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<label class="cliente_titulo" data-toggle="collapse" data-target="#collapseClente" data-parent="#cliente" style="font-size: 13pt">Aprova&ccedil;&atilde;o do Cliente</label>
+				</h3>
+			</div>
+			<div id="collapseClente" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+								<label class="control-label">Nome:</label>
+								<input type="text" name="clie_txt_nome" id="clie_txt_nome" class="form-control clie_txt_nome" placeholder="Nome do Cliente"> 
+							</div>
+							<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+								<label class="control-label">Data:</label>
+								<input type="text" name="clie_txt_dt" id="clie_txt_dt" class="form-control" placeholder="dia/mes/ano">
+							</div>
+					    </div>
+					</div>
+					<div class="row space">
+						<label class="col-md-12 control-label" style="margin-bottom: 10px;">MIT Aprovada?</label>
+						<div class="div_margin">
+							<label class="radio-inline"> 
+								<input type="radio" name="clie_rd_aprov" id="clie_rd_aprovSim" class="clie_rd_aprov" value="sim">Sim
+							</label>
+							<label class="radio-inline"> 
+								<input type="radio" name="clie_rd_aprov" id="clie_rd_aprovNao" class="clie_rd_aprov" value="nao">N&atilde;o; Devolver ao solicitante
+							</label>
+						</div>
+					</div>
+					<div id="div_obsClie" class="space">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<label class="labelObsClie">Observa&ccedil;&otilde;es:</label>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="form-group col-md-12">
+										<textarea name="clie_txtArea_obs" id="clie_txtArea_obs" rows="3" class="form-control"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+</div>
+<script src="assinatura_mit.js"></script>
+</body>
+</html>

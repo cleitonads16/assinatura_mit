@@ -1,0 +1,19 @@
+::-webkit-input-placeholder {
+	text-transform: none;
+	font-style: italic;
+	font-size: 13px;
+}
+
+.div_margin{
+    margin-left: 15px;
+}
+.div_titulo{
+	text-align: center;
+}
+.space{
+    padding-top: 15px;
+}
+
+body {
+	word-wrap: break-word;
+}
