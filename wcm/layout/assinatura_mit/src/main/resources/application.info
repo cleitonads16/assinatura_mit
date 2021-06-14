@@ -1,0 +1,17 @@
+application.type=layout
+application.code=assinatura_mit
+application.title=assinatura_mit
+application.description=assinatura_mit
+application.category=SYSTEM
+application.renderer=freemarker
+developer.code=dell-inspclei21
+developer.name=cleit
+developer.url=http://www.fluig.com
+layout.defaultSlot=SlotA
+layout.file=layout.ftl
+locale.file.base.name=assinatura_mit
+slot.SlotGlobalAlert=alertpopover
+slot.SlotInstantSearch=suggestsearch
+slot.SlotLogin=sociallogin
+slot.SlotMenu=menu
+slot.SlotUsePolicy=usepolicy
