@@ -1,6 +1,7 @@
 <div id="MyWidget_${instanceId}" class="super-widget wcm-widget-class fluig-style-guide" data-params="MyWidget.instance()">
 <form>
 <script src="widget_teste_mit.css"></script>
+<script src="/webdesk/vcXMLRPC.js"></script>
 	<div class="form-group">
 	
 	<div class="panel panel-default">
@@ -18,9 +19,7 @@
 	
 	</div>
 	</div>
-	
-		
-		
+						
 			<div class="div_margin">
 				<div class="row">
 					<label class="col-md-12 control-label" style="margin-bottom: 10px;">Aprovado?</label>
