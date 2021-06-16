@@ -14,10 +14,10 @@ var MyWidget = SuperWidget.extend({
             source: users,
             displayKey: 'workflowProcessPK.processInstanceId',
             multiSelect: false,
-            style: {
+            /*style: {
                 autocompleteTagClass: 'tag-gray',
                 tableSelectedLineClass: 'info'
-            },
+            },*/
             table: {
                 header: [{
                     'title': 'Nº Solicitação',
@@ -33,7 +33,7 @@ var MyWidget = SuperWidget.extend({
                 
         
         var filter = FLUIGC.filter('#filter-example-dataset', settingsExampleDataset);                
-    	
+    	console.log("VAR FILTER---------------"+filter);
     },
     
     //BIND de eventos

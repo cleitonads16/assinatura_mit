@@ -13,4 +13,7 @@ function beforeTaskSave(colleagueId,nextSequenceId,userList){
 		}
 		
 	}
+
+	armazenaAnexos();
 }
+
