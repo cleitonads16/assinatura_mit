@@ -12,7 +12,6 @@ var HelloWorld = SuperWidget.extend({
             console.log("idForm", idForm);
         });
 
-        that.toString();
     },
 
     bindings: {
