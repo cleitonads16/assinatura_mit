@@ -1,6 +1,7 @@
 function displayFields(form, customHTML) {
 	setEnabled(form, false);
 
+
 	function setEnabled(form, lEnable) {
 		var hpForm = new java.util.HashMap();
 
@@ -16,10 +17,12 @@ function displayFields(form, customHTML) {
 
 	var modo = form.getFormMode();
 	if (modo == "ADD" || modo == "MOD") {
-		var numAtividade = getValue("WKNumState");
+		var numAtividade = getValue("WKNumState"); 
 	} else {
 		var numAtividade = null;
 	}
+
+	
 
 	// Captura data atual
 	var dataTemp = new Date();
@@ -47,6 +50,7 @@ function displayFields(form, customHTML) {
 		// Data atual
 		form.setValue('sol_txt_dt', dataAtual);
 		// Habilitados
+		form.setEnabled("numero_processo", true);
 		form.setEnabled("zoom_nomeCliente", true);
 		form.setEnabled("zoom_codPojeto", true);
 		form.setEnabled("sol_txt_nomeProjeto", true);
@@ -71,6 +75,8 @@ function displayFields(form, customHTML) {
 		
 	}
 
+	
+	form.setEnabled("numero_processo", true);
 	form.setValue("atividade", numAtividade);
 	form.setValue("loginUsuario", userAtual);
 

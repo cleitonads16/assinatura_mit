@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Solicitação de Assitatura de MIT</processId>
-      <version>4</version>
+      <version>6</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>567</formId>
@@ -305,7 +305,7 @@
         <companyId>1</companyId>
         <processId>assinatura_mit</processId>
         <expressionOrder>1</expressionOrder>
-        <version>4</version>
+        <version>6</version>
         <sequence>8</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;clie_rd_aprovSim&quot;)==&quot;nao&quot;</condition>
@@ -317,7 +317,7 @@
         <companyId>1</companyId>
         <processId>assinatura_mit</processId>
         <expressionOrder>2</expressionOrder>
-        <version>4</version>
+        <version>6</version>
         <sequence>8</sequence>
       </conditionProcessStatePK>
       <condition>true</condition>
@@ -329,7 +329,7 @@
         <companyId>1</companyId>
         <processId>assinatura_mit</processId>
         <expressionOrder>1</expressionOrder>
-        <version>4</version>
+        <version>6</version>
         <sequence>16</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;sol_rd_finalProces&quot;)==&quot;sim&quot;</condition>
@@ -341,7 +341,7 @@
         <companyId>1</companyId>
         <processId>assinatura_mit</processId>
         <expressionOrder>2</expressionOrder>
-        <version>4</version>
+        <version>6</version>
         <sequence>16</sequence>
       </conditionProcessStatePK>
       <condition>true</condition>
@@ -475,54 +475,12 @@
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
         <companyId>1</companyId>
-        <eventId>armazenaAnexos</eventId>
+        <eventId>afterProcessCreate</eventId>
         <processId>assinatura_mit</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>function armazenaAnexos(){&#xd;
-	&#xd;
-	var attachments = hAPI.listAttachments();&#xd;
-&#xd;
-    try {&#xd;
-     var calendar = java.util.Calendar.getInstance().getTime();&#xd;
-&#xd;
-     var desc_dcto = hAPI.getCardValue(&quot;zoom_nomeCliente&quot;) + &quot; - &quot; + hAPI.getCardValue(&quot;zoom_codPojeto&quot;);&#xd;
-&#xd;
-      //Criar pasta com nome de acordo com o valor de um campo&#xd;
-           var dto = docAPI.newDocumentDto();&#xd;
-           dto.setDocumentDescription(desc_dcto); // nome da pasta que sera criada&#xd;
-           dto.setDocumentType(&quot;1&quot;);&#xd;
-           dto.setParentDocumentId(20031); // codigo da pasta que se deseja criar as sub-pastas&#xd;
-           dto.setDocumentTypeId(&quot;&quot;);&#xd;
-&#xd;
-           var folder = docAPI.createFolder(dto, null, null);&#xd;
-&#xd;
-           log.info(&quot;PASTA CRIADA COM O ID :&quot; + folder.getDocumentId());&#xd;
-&#xd;
-&#xd;
-           for ( var i = 0; i &lt; attachments.size(); i++) {&#xd;
-               var docDto = attachments.get(i);&#xd;
-&#xd;
-               //Enviar Anexo para Documentos do fluig&#xd;
-               docDto.setParentDocumentId(folder.getDocumentId());&#xd;
-               docDto.setVersionDescription(&quot;Processo: &quot; + getValue(&quot;WKNumProces&quot;));&#xd;
-               docDto.setExpires(false);&#xd;
-               docDto.setCreateDate(calendar);&#xd;
-               docDto.setInheritSecurity(true);&#xd;
-               docDto.setTopicId(1);&#xd;
-               docDto.setUserNotify(false);&#xd;
-               docDto.setValidationStartDate(calendar);&#xd;
-               docDto.setVersionOption(&quot;0&quot;);&#xd;
-               docDto.setUpdateIsoProperties(true);&#xd;
-&#xd;
-               hAPI.publishWorkflowAttachment(docDto);&#xd;
-&#xd;
-           }&#xd;
-&#xd;
-       } catch (e) {&#xd;
-        log.error(&quot;Problemas na criação da pasta:\n&quot; + e);&#xd;
-       }&#xd;
-       &#xd;
+      <eventDescription>function afterProcessCreate(processId){&#xd;
+	hAPI.setCardValue(&quot;numero_processo&quot;,processId);	&#xd;
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -547,8 +505,6 @@
 		}&#xd;
 		&#xd;
 	}&#xd;
-&#xd;
-	armazenaAnexos();&#xd;
 }&#xd;
 &#xd;
 </eventDescription>
@@ -651,7 +607,7 @@ process.instructions=&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>assinatura_mit</processId>
-        <version>4</version>
+        <version>6</version>
         <linkSequence>7</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -662,7 +618,7 @@ process.instructions=&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>assinatura_mit</processId>
-        <version>4</version>
+        <version>6</version>
         <linkSequence>10</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -673,7 +629,7 @@ process.instructions=&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>assinatura_mit</processId>
-        <version>4</version>
+        <version>6</version>
         <linkSequence>12</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -684,7 +640,7 @@ process.instructions=&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>assinatura_mit</processId>
-        <version>4</version>
+        <version>6</version>
         <linkSequence>19</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -695,7 +651,7 @@ process.instructions=&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>assinatura_mit</processId>
-        <version>4</version>
+        <version>6</version>
         <linkSequence>19</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -713,7 +669,7 @@ process.instructions=&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>assinatura_mit</processId>
-      <processVersion>4</processVersion>
+      <processVersion>6</processVersion>
       <stateSequence>6</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -723,7 +679,7 @@ process.instructions=&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>assinatura_mit</processId>
-      <processVersion>4</processVersion>
+      <processVersion>6</processVersion>
       <stateSequence>6</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -733,7 +689,7 @@ process.instructions=&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>assinatura_mit</processId>
-      <processVersion>4</processVersion>
+      <processVersion>6</processVersion>
       <stateSequence>6</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -743,7 +699,7 @@ process.instructions=&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>assinatura_mit</processId>
-      <processVersion>4</processVersion>
+      <processVersion>6</processVersion>
       <stateSequence>6</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -753,7 +709,7 @@ process.instructions=&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>assinatura_mit</processId>
-      <processVersion>4</processVersion>
+      <processVersion>6</processVersion>
       <stateSequence>6</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

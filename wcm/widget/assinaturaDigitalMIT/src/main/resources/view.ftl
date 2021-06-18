@@ -1,16 +1,15 @@
 <div id="HelloWorld_${instanceId}" class="super-widget wcm-widget-class fluig-style-guide"
-     data-params="HelloWorld.instance({message: 'Hello world'})">
-
+     data-params="HelloWorld.instance()">
     <!-- efetua a tradução do texto do objeto i18n -->	       
     <div class="row">
-		<div class="col-md-6">
-			<label for="NOME_SOLICITANTE_${instanceId}">${i18n.getTranslation('Responsável Assinatura')}</label>
-			<input type="text" class="form-control" name="NOME_SOLICITANTE_${instanceId}" id="NOME_SOLICITANTE_${instanceId}"/>
-		</div>
-		<div class="col-md-6">
+    	<div class="col-md-6">
 			<label for="numSolic_${instanceId}">${i18n.getTranslation('Nº da Solicitação')}</label>
 			<input class="form-control numSolic" name="numSolic_${instanceId}" id="numSolic_${instanceId}" rows="3"/>
 		</div>
+		<div class="col-md-6">
+			<label for="respNome_${instanceId}">${i18n.getTranslation('Responsável Assinatura')}</label>
+			<input type="text" class="form-control" name="respNome_${instanceId}" id="respNome_${instanceId}"/>
+		</div>		
 		<div class="col-md-6">
 			<label for="data_${instanceId}">${i18n.getTranslation('Data')}</label>
 			<input class="form-control" name="data_${instanceId}" id="data_${instanceId}"/>
@@ -48,11 +47,10 @@
 		</div>									
 	</div>	
 	<br>
-	<!--  <div class="row">
+	<div class="row">
 		<div class="col-md-12">
-			<button type="buton" class="btn btn-default" data-abrirchamado>${i18n.getTranslation('btn.chamado')}</button>
+			<button type="buton" class="btn btn-default" data-abrirchamado>${i18n.getTranslation('Enviar')}</button>
 		</div>
-	</div>   -->
-	<br>
+	</div>  
 </div>
 <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>

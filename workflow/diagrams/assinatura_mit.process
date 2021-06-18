@@ -2097,7 +2097,7 @@
     <fonts name="Arial" size="8"/>
     <fonts bold="true" name="Arial" size="8"/>
   </pi:Diagram>
-  <bpmn2:BpmnProcess author="" cardIndex="567" category="Servi&#231;os" complementsLevel="1" expedient="Default" extendedFields="&lt;list/&gt;" formSource="server" id="assinatura_mit" instruction="" keyWord="" managerAssignmentController="&lt;org.eclipse.bpmn2.impl.AssignmentControllerRole&gt;&#10;  &lt;roleId&gt;admin&lt;/roleId&gt;&#10;  &lt;mechanismName&gt;Papel&lt;/mechanismName&gt;&#10;&lt;/org.eclipse.bpmn2.impl.AssignmentControllerRole&gt;" managerMechanism="Papel" mobileReady="true" name="Solicita&#231;&#227;o de Assitatura de MIT" notifyRequisitionerComplements="true" notifyResponsibleComplements="true" serverId="FLUIG_LAB" version="4" volume="Default"/>
+  <bpmn2:BpmnProcess author="" cardIndex="567" category="Servi&#231;os" complementsLevel="1" expedient="Default" extendedFields="&lt;list/&gt;" formSource="server" id="assinatura_mit" instruction="" keyWord="" managerAssignmentController="&lt;org.eclipse.bpmn2.impl.AssignmentControllerRole&gt;&#10;  &lt;roleId&gt;admin&lt;/roleId&gt;&#10;  &lt;mechanismName&gt;Papel&lt;/mechanismName&gt;&#10;&lt;/org.eclipse.bpmn2.impl.AssignmentControllerRole&gt;" managerMechanism="Papel" mobileReady="true" name="Solicita&#231;&#227;o de Assitatura de MIT" notifyRequisitionerComplements="true" notifyResponsibleComplements="true" serverId="FLUIG_LAB" version="6" volume="Default"/>
   <bpmn2:BpmnPool cores="FFFFFF" id="pool1" name="Solicita&#231;&#227;o de Assinatura de MIT"/>
   <bpmn2:BpmnSwimLane cores="C0C0C0" id="swimlane2" name="Solicitante"/>
   <bpmn2:BpmnSwimLane cores="F4F4F4" id="swimlane3" name="Cliente"/>
