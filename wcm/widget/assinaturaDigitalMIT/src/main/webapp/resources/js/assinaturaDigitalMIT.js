@@ -5,7 +5,6 @@ var HelloWorld = SuperWidget.extend({
     	console.log("==================VERSÃO ATUAL===================");
     	
         var users = this.getDatasetUsers();
- 
         var settingsExampleDataset = {
             source: users,
             displayKey: 'numero_processo',
@@ -37,23 +36,9 @@ var HelloWorld = SuperWidget.extend({
             }
         };
 
-        var dataset = DatasetFactory.getDataset('DSassinatura_mit');
-        for(var i=0; i<dataset.values.length; i++){
-            var c1 =  dataset.values[i]["numero_processo"]; 
-            var c2 =  dataset.values[i]["sol_txt_nomeResAss"]; 
-            var c3 =  dataset.values[i]["sol_txt_dt"];  
-            
-            console.log("Campo 1 = " + i,c1); 
-            console.log("Campo 2 = " + i,c2);
-            console.log("Campo 3 = " + i,c3); 
-         
-            // Faça o que quiser com os campos aqui e cada linha do dataset
-         }
-
-        
         var filter = FLUIGC.filter('#numSolic_'+this.instanceId, settingsExampleDataset);
-        // filter = $('#respNome_'+this.instanceId).val(c2);
-
+                    
+         
     },
 
     getDatasetUsers: function() {
@@ -62,23 +47,6 @@ var HelloWorld = SuperWidget.extend({
                 // Busca o dataset de usuários
                 var dataset = DatasetFactory.getDataset('DSassinatura_mit');
                 var users = dataset.values;
-
-                for(var i=0; i<dataset.values.length; i++){
-                    var campo1 =  dataset.values[i]["numero_processo"]; 
-                    var campo2 =  dataset.values[i]["sol_txt_nomeResAss"]; 
-                    var campo3 =  dataset.values[i]["sol_txt_dt"];  
-                    
-                    // console.log("Campo 1 = " + campo1); 
-                    // console.log("Campo 2 = " + campo2);
-                    // console.log("Campo 3 = " + campo3); 
-                 
-                    // Faça o que quiser com os campos aqui e cada linha do dataset
-                 }
-
-                // $('#numSolic_'+this.instanceId).val(campo1);
-                // $('#respNome_'+this.instanceId).val(campo2);
-                // $('#data_'+this.instanceId).val(campo3);
-
                 return users;
         } catch(error) {
                 console.error(error);
